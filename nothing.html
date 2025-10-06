@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nothing to See Here</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            /* UPDATED: Two variables for the gradient */
+            --gradient-color-1: #00aeff;
+            --gradient-color-2: #0059ff;
+            --cursor-color: #32f8ff;
+            /* Matched cursor to the second color */
+        }
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+            font-family: 'Space Mono', monospace;
+        }
+
+
+
+
+        /* Center content for demonstration */
+        .content {
+            display: grid;
+            place-items: center;
+            height: 100%;
+            text-align: center;
+        }
+
+
+
+        /* The animation keyframes */
+        @keyframes glowingAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .message {
+
+            font-size: 2.5rem;
+            width: 23ch;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 4px solid var(--cursor-color);
+            animation: typing 3.5s steps(23), blink 0.5s infinite step-end alternate;
+
+            /* --- GRADIENT TEXT --- */
+            /* 1. Make the text color transparent */
+            color: transparent;
+            /* 2. Apply the gradient as a background */
+            background-image: linear-gradient(90deg, var(--gradient-color-1), var(--gradient-color-2));
+            /* 3. Clip the background to the text shape */
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+
+        /* --- RESPONSIVENESS: Tablet (601px to 900px) --- */
+        /* MOBILE ONLY */
+        @media (max-width: 480px) {
+            .content {
+                padding: 0 1rem;
+                /* safe side padding so nothing hits edges */
+            }
+
+            .message {
+                /* keep the typing effect but scale down on tiny screens */
+                font-size: clamp(1rem, 7vw, 1.35rem);
+                border-right-width: 2px;
+
+                /* key fix: final width can never exceed the viewport minus padding */
+                width: min(23ch, 100vw - 2rem);
+                max-width: 100%;
+            }
+        }
+
+        /* (optional) slightly larger phones/phablets */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .content {
+                padding: 0 1rem;
+            }
+
+            .message {
+                font-size: clamp(1.1rem, 5vw, 1.6rem);
+                border-right-width: 3px;
+                width: min(23ch, 100vw - 2rem);
+            }
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1 class="message">Sorry, nothing is here!</h1>
+    </div>
+</body>
+
+</html>
