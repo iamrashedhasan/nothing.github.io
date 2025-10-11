@@ -18,12 +18,12 @@ You can view the live demo by opening `index.html` in a web browser or hosting i
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/nothing-to-see-here.git
+   git clone https://github.com/iamrashedhasan/nothing.github.io.git
    ```
 
 2. **Navigate to the Project Directory**:
    ```bash
-   cd nothing-to-see-here
+   cd nothing.github.io
    ```
 
 3. **Open the Page**:
